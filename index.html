@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wash & Go Autolavaggio – Self-service H24</title>
+  <meta name="description" content="Wash & Go Autolavaggio: self-service e portale automatico aperti 24 ore su 24 a Filadelfia (VV). Indicazioni, recensioni, social e assistenza WhatsApp.">
+  <meta name="theme-color" content="#0A1D35">
+
+  <!-- Anteprima quando il link viene condiviso (WhatsApp, Facebook...) -->
+  <meta property="og:title" content="Wash & Go Autolavaggio">
+  <meta property="og:description" content="Self-service H24 – Filadelfia (VV)">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon: una goccia. Sostituibile con il logo (es. <link rel="icon" href="logo.png">) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Palette */
+      --notte: #0A1D35;        /* sfondo */
+      --ardesia: #13304F;      /* pulsanti */
+      --ardesia-chiaro: #1B3D62;
+      --acqua: #1FA5C4;        /* accento principale */
+      --schiuma: #EAF4FC;      /* testo */
+      --nebbia: #93A8C2;       /* testo secondario */
+      --whatsapp: #25D366;
+
+      --font-titolo: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+      --font-testo: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+      --raggio: 14px;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+
+    html { height: 100%; -webkit-text-size-adjust: 100%; }
+
+    body {
+      min-height: 100%;
+      background: var(--notte);
+      color: var(--schiuma);
+      font-family: var(--font-testo);
+      font-size: 1rem;
+      line-height: 1.5;
+      display: flex;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+      /* riflesso d'acqua sullo sfondo, in alto */
+      background-image: radial-gradient(120% 55% at 50% -10%, rgba(31, 165, 196, 0.22), transparent 70%);
+      background-repeat: no-repeat;
+    }
+
+    .pagina {
+      width: 100%;
+      max-width: 420px;
+      padding: 1.75rem 1.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ---------- Intestazione ---------- */
+    .logo { display: block; width: 78%; max-width: 280px; height: auto; margin-top: 0.5rem; }
+
+    .solo-lettori {
+      position: absolute; width: 1px; height: 1px; overflow: hidden;
+      clip: rect(0 0 0 0); white-space: nowrap;
+    }
+
+    .stato {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.1rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(31, 165, 196, 0.12);
+      color: var(--schiuma);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .stato::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+      animation: pulsa 2.4s ease-out infinite;
+    }
+    @keyframes pulsa {
+      0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+      70%  { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* ---------- Pulsanti ---------- */
+    .link {
+      width: 100%;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      list-style: none;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      width: 100%;
+      min-height: 60px;
+      padding: 0.8rem 1rem;
+      border-radius: var(--raggio);
+      background: var(--ardesia);
+      color: var(--schiuma);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      border: 1px solid rgba(147, 168, 194, 0.14);
+      transition: transform 0.12s ease, background-color 0.15s ease;
+    }
+    .btn:hover { background: var(--ardesia-chiaro); }
+    .btn:active { transform: scale(0.97); background: var(--ardesia-chiaro); }
+    .btn:focus-visible { outline: 3px solid var(--acqua); outline-offset: 3px; }
+
+    .btn .icona {
+      flex: 0 0 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 1.25rem;
+      background: rgba(234, 244, 252, 0.07);
+    }
+    .btn .icona svg { width: 1.3rem; height: 1.3rem; fill: currentColor; }
+    .btn svg.freccia { width: 0.7rem; height: 0.9rem; fill: currentColor; flex: 0 0 auto; }
+    .btn .testo { flex: 1; display: flex; flex-direction: column; line-height: 1.25; }
+    .btn .dettaglio { font-weight: 400; font-size: 0.85rem; color: var(--nebbia); }
+    .btn .freccia { color: var(--nebbia); }
+
+    /* Pulsante principale: Maps */
+    .btn-primario {
+      background: var(--acqua);
+      color: var(--notte);
+      border: none;
+      min-height: 72px;
+    }
+    .btn-primario:hover, .btn-primario:active { background: #3BB6D2; }
+    .btn-primario .icona { background: rgba(14, 27, 44, 0.12); }
+    .btn-primario .dettaglio, .btn-primario .freccia { color: rgba(14, 27, 44, 0.72); }
+
+    /* Colori delle icone per canale */
+    .ico-google { color: #FBBC05; }
+    .ico-instagram { color: #E1306C; }
+    .ico-facebook { color: #4C8BF5; }
+
+    /* WhatsApp: separato visivamente perché è per chi è al totem */
+    .blocco-aiuto {
+      width: 100%;
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed rgba(147, 168, 194, 0.25);
+    }
+    .blocco-aiuto p {
+      font-size: 0.95rem;
+      color: var(--nebbia);
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: #06301A;
+      border: none;
+    }
+    .btn-whatsapp:hover, .btn-whatsapp:active { background: #3BE07B; }
+    .btn-whatsapp .icona { background: rgba(6, 48, 26, 0.12); }
+    .btn-whatsapp .dettaglio, .btn-whatsapp .freccia { color: rgba(6, 48, 26, 0.75); }
+
+    /* ---------- Piè di pagina ---------- */
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--nebbia);
+    }
+    footer address { font-style: normal; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stato::before { animation: none; }
+      .btn { transition: none; }
+      .btn:active { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="pagina">
+
+    <!-- LOGO bianco incorporato come SVG (nessun file extra da caricare) -->
+    <svg class="logo" role="img" aria-label="Wash &amp; Go Autolavaggio H24" viewBox="729.0 298.0 1367.0 913.0" xmlns="http://www.w3.org/2000/svg">
+  
+  <g transform="translate(0.000000,1504.000000) scale(0.100000,-0.100000)" fill="#FFFFFF" stroke="none">
+    <path d="M14390 11654 c-624 -56 -1019 -180 -1615 -506 -187 -103 -305 -175 -834 -511 l-204 -129 -346 -24 c-732 -49 -1015 -85 -1421 -179 -306 -71 -524 -146 -765 -265 -269 -132 -467 -265 -681 -458 -249 -224 -314 -362 -280 -588 16 -104 46 -201 115 -371 58 -142 56 -166 -18 -306 -60 -113 -103 -232 -116 -320 l-7 -47 818 2 819 3 52 74 c29 40 56 85 60 99 4 18 -10 74 -46 182 -68 204 -81 299 -58 439 31 187 114 339 261 478 149 141 306 204 511 204 162 0 293 -38 413 -120 77 -52 198 -182 242 -260 59 -103 51 -97 106 -83 60 16 256 90 266 100 10 10 -59 154 -113 235 -59 87 -179 207 -266 268 -310 214 -698 254 -1060 109 -333 -134 -600 -452 -690 -822 -28 -114 -25 -376 5 -485 12 -45 22 -85 22 -88 0 -3 -193 -5 -430 -5 -236 0 -430 2 -430 5 0 2 9 27 20 56 48 122 34 224 -70 494 -59 151 -87 261 -76 290 9 25 47 34 252 60 281 36 387 75 506 184 54 49 156 186 147 196 -3 2 -46 -4 -97 -15 -95 -19 -389 -47 -399 -37 -12 12 180 141 308 207 265 136 610 251 959 319 187 37 413 65 735 92 82 7 697 14 1650 19 981 5 1564 12 1645 19 593 53 1058 218 1269 448 57 61 149 218 136 231 -3 3 -15 -4 -28 -16 -78 -74 -542 -228 -827 -276 -132 -22 -327 -43 -505 -55 -288 -19 -1254 -34 -1645 -25 l-375 9 80 51 c226 145 688 399 886 487 532 238 946 320 1529 303 477 -13 848 -79 1483 -262 194 -56 680 -214 675 -220 -2 -1 -49 -12 -105 -23 -211 -43 -478 -133 -642 -216 -181 -91 -407 -241 -569 -377 -227 -193 -479 -515 -617 -789 -61 -120 -195 -489 -195 -536 0 -12 146 -73 257 -108 l72 -23 46 145 c99 311 220 541 416 788 358 455 868 726 1539 822 97 13 194 17 435 18 318 0 341 -2 710 -52 446 -60 690 -21 861 140 58 54 124 153 124 186 0 6 -17 4 -40 -4 -95 -33 -256 -47 -485 -42 -367 8 -507 39 -1270 282 -1250 397 -1706 513 -2275 581 -129 15 -717 28 -830 18z"/>
+    <path d="M19290 10442 c-73 -35 -110 -97 -110 -184 0 -79 22 -122 105 -208 150 -156 202 -237 234 -363 l18 -71 23 50 c45 101 62 191 62 324 0 205 -53 353 -151 424 -34 25 -53 31 -104 33 -34 1 -69 -1 -77 -5z"/>
+    <path d="M19927 10285 c11 -165 -51 -545 -127 -775 -111 -341 -324 -683 -584 -940 -84 -82 -106 -96 -67 -42 32 47 107 203 146 307 103 276 126 520 70 752 -9 37 -41 118 -71 180 -45 94 -66 124 -131 191 -161 163 -375 243 -613 229 -163 -11 -279 -52 -370 -134 -28 -25 -49 -47 -47 -49 2 -2 38 -13 79 -23 253 -65 422 -251 444 -490 13 -140 -45 -377 -135 -548 -220 -416 -641 -678 -1231 -764 -130 -19 -507 -16 -675 5 -386 49 -843 177 -1674 472 -562 200 -1071 337 -1406 379 -1025 129 -2066 -111 -2832 -652 -188 -133 -463 -371 -563 -488 -23 -27 -21 -26 35 11 282 189 764 389 1180 489 292 70 521 95 881 95 721 0 1244 -117 2254 -507 1126 -435 1507 -564 1985 -672 816 -184 1469 -137 2105 154 441 202 837 533 1083 905 147 223 270 523 321 785 32 166 56 393 56 532 0 198 -53 534 -100 638 l-18 40 5 -80z m-1281 -286 c183 -87 309 -244 365 -454 33 -123 31 -345 -4 -476 -65 -248 -181 -447 -375 -651 -380 -396 -855 -597 -1466 -619 -29 -1 -28 -2 9 -9 251 -52 724 -62 984 -21 455 70 905 251 1238 497 96 71 255 224 330 318 70 87 78 96 65 71 -26 -50 -190 -240 -283 -329 -176 -167 -420 -350 -599 -448 -262 -144 -669 -267 -984 -297 -156 -16 -497 -13 -660 4 -446 47 -1151 232 -1661 436 -58 23 -104 44 -102 45 1 2 56 -13 122 -32 777 -227 1563 -228 2125 -4 262 104 441 219 621 399 229 229 367 481 435 791 15 65 19 125 18 250 0 152 -2 172 -27 246 -43 128 -106 214 -217 294 -53 38 -28 34 66 -11z"/>
+    <path d="M16995 10054 c-107 -11 -248 -39 -330 -65 -279 -92 -550 -292 -728 -540 -144 -201 -265 -504 -312 -782 l-6 -38 68 -31 c80 -36 253 -82 265 -70 5 5 30 89 57 188 94 344 183 508 373 690 94 90 177 148 293 204 115 55 143 59 54 8 -203 -118 -355 -282 -454 -490 -89 -188 -136 -377 -139 -556 l-1 -104 60 -19 c59 -19 210 -49 245 -49 14 0 19 13 24 73 31 329 121 545 305 727 228 227 523 296 822 195 161 -55 292 -167 434 -370 123 -177 166 -215 220 -195 68 26 168 181 167 260 -1 49 -69 206 -139 323 -196 325 -535 558 -906 622 -91 15 -301 26 -372 19z"/>
+    <path d="M17165 9316 c-88 -25 -158 -55 -215 -92 -30 -20 -46 -33 -35 -29 48 16 153 16 225 1 151 -32 298 -123 401 -249 62 -77 151 -255 180 -362 11 -44 25 -84 30 -89 21 -23 240 96 275 149 26 40 13 121 -35 221 -104 216 -244 349 -453 426 -72 26 -99 31 -203 34 -84 3 -135 0 -170 -10z"/>
+  </g>
+  <g transform="translate(0.000000,1504.000000) scale(0.100000,-0.100000)" fill="#FFFFFF" stroke="none">
+    <path d="M12231 6515 c-203 -38 -343 -130 -411 -270 -78 -159 -53 -344 60 -455 83 -81 190 -125 467 -194 220 -54 288 -98 288 -183 0 -39 -5 -49 -41 -83 -49 -45 -105 -60 -230 -60 -151 0 -302 42 -432 121 l-63 39 -23 -53 c-13 -28 -42 -92 -65 -141 -32 -69 -38 -92 -29 -98 229 -153 588 -213 859 -143 138 36 275 130 332 228 54 91 74 215 53 317 -20 93 -63 160 -138 216 -77 56 -175 93 -397 149 -259 65 -316 98 -316 186 0 44 29 80 90 112 30 16 64 22 139 25 129 6 238 -17 352 -72 47 -23 87 -39 89 -36 10 17 115 265 115 273 0 15 -151 78 -249 104 -122 31 -337 40 -450 18z"/>
+    <path d="M15773 6519 c-125 -21 -236 -83 -289 -163 -93 -141 -80 -324 33 -463 l43 -52 -58 -40 c-79 -53 -174 -157 -208 -228 -27 -53 -29 -67 -29 -168 0 -99 3 -116 27 -168 53 -112 174 -205 317 -242 229 -59 473 -28 632 80 36 25 69 45 74 45 4 0 44 -36 90 -80 l82 -80 102 117 102 117 -86 86 c-73 73 -84 88 -72 99 44 36 144 319 120 341 -9 9 -265 92 -268 88 -1 -2 -12 -34 -25 -73 -12 -38 -31 -91 -42 -117 l-20 -47 -114 107 c-63 59 -114 110 -114 113 0 4 29 26 65 49 145 94 217 232 201 383 -16 155 -118 253 -303 292 -74 16 -179 18 -260 4z m181 -243 c95 -40 100 -146 11 -224 -20 -19 -53 -41 -71 -50 l-34 -16 -50 49 c-57 57 -75 101 -60 155 22 81 119 122 204 86z m-19 -789 l159 -153 -45 -26 c-153 -88 -344 -72 -410 35 -50 83 -34 156 53 240 32 31 65 57 72 57 7 0 84 -69 171 -153z"/>
+    <path d="M17913 6516 c-137 -26 -233 -66 -339 -142 -196 -139 -314 -372 -316 -624 -1 -238 68 -408 226 -558 164 -155 344 -222 602 -222 123 0 247 18 339 50 73 25 189 83 233 116 l32 25 -2 307 -3 307 -167 3 -168 2 0 -199 c0 -110 -4 -211 -9 -224 -12 -30 -71 -52 -182 -67 -121 -17 -245 9 -333 69 -120 83 -196 236 -196 396 1 325 291 531 620 439 73 -21 119 -45 185 -99 l56 -46 114 108 c63 59 115 111 115 114 0 11 -102 94 -161 132 -64 41 -155 79 -244 102 -84 22 -310 28 -402 11z"/>
+    <path d="M19600 6524 c-193 -34 -317 -90 -449 -202 -251 -213 -328 -619 -176 -927 72 -146 195 -265 350 -340 127 -61 195 -76 365 -82 186 -6 298 15 433 81 198 96 329 249 397 461 34 108 40 312 11 425 -71 283 -273 486 -556 561 -77 20 -310 35 -375 23z m270 -330 c242 -67 369 -356 275 -624 -53 -150 -181 -253 -352 -282 -277 -47 -523 169 -523 459 0 330 276 535 600 447z"/>
+    <path d="M7725 6398 c19 -57 131 -397 250 -756 l216 -652 196 2 195 3 57 185 c141 458 246 779 252 772 4 -4 50 -140 102 -302 53 -162 122 -376 154 -475 l58 -180 197 -3 197 -2 11 42 c6 24 56 178 111 343 104 309 367 1087 376 1111 4 12 -28 14 -181 14 l-185 0 -131 -402 c-72 -222 -148 -452 -168 -513 l-36 -110 -81 246 c-44 135 -119 366 -165 512 l-85 267 -165 0 -166 0 -27 -82 c-15 -46 -88 -270 -163 -498 -74 -228 -137 -422 -140 -430 -6 -15 -37 81 -221 668 l-107 342 -192 0 -193 0 34 -102z"/>
+    <path d="M10575 6373 c-152 -337 -595 -1359 -595 -1373 0 -6 71 -10 189 -10 l189 0 63 158 64 157 341 3 341 2 68 -160 68 -160 194 0 c107 0 193 4 193 9 0 8 -142 328 -493 1106 -74 165 -144 321 -155 348 l-21 47 -194 0 -195 0 -57 -127z m360 -512 c58 -140 104 -255 103 -257 -7 -5 -428 -8 -428 -3 0 4 43 112 96 240 53 129 100 245 105 258 5 13 11 22 14 20 2 -3 52 -119 110 -258z"/>
+    <path d="M13220 5745 l0 -755 180 0 180 0 0 320 0 320 330 0 330 0 0 -320 0 -320 185 0 185 0 0 755 0 755 -185 0 -185 0 0 -280 0 -280 -330 0 -330 0 0 280 0 280 -180 0 -180 0 0 -755z"/>
+  </g>
+  <g transform="translate(0.000000,1504.000000) scale(0.100000,-0.100000)" fill="#FFFFFF" stroke="none">
+    <path d="M16102 4658 c-36 -10 -72 -58 -72 -96 0 -87 119 -137 183 -78 86 80 5 207 -111 174z"/>
+    <path d="M11490 4120 l0 -511 83 3 82 3 0 505 0 505 -82 3 -83 3 0 -511z"/>
+    <path d="M18852 4565 c-73 -20 -107 -40 -164 -93 -79 -74 -79 -73 13 -126 45 -25 85 -46 89 -46 3 0 17 12 31 26 61 66 166 90 243 56 88 -39 95 -123 18 -216 -20 -26 -124 -127 -230 -227 l-193 -181 3 -71 3 -72 358 -3 357 -2 0 95 0 95 -202 0 -203 1 45 41 c255 234 269 249 299 311 37 77 46 138 31 211 -16 80 -60 133 -144 176 -66 33 -74 35 -185 37 -78 2 -133 -2 -169 -12z"/>
+    <path d="M8448 4488 c-230 -522 -378 -862 -378 -870 0 -5 42 -7 92 -6 l92 3 39 100 c21 55 41 103 45 107 4 4 113 8 242 8 l235 1 46 -108 46 -108 91 -3 c66 -2 92 1 92 9 0 7 -47 116 -105 243 -57 127 -151 337 -209 466 l-105 235 -93 3 -93 3 -37 -83z m225 -333 l74 -170 -165 -3 c-91 -1 -167 0 -170 2 -2 3 33 94 79 202 81 190 84 196 96 168 6 -16 45 -105 86 -199z"/>
+    <path d="M17665 4558 c-3 -7 -4 -222 -3 -478 l3 -465 108 -3 107 -3 0 201 0 200 210 0 210 0 2 -197 3 -198 108 -3 107 -3 0 481 0 481 -107 -3 -108 -3 -3 -182 -2 -183 -210 0 -210 0 0 185 0 185 -105 0 c-75 0 -107 -4 -110 -12z"/>
+    <path d="M19849 4534 c-12 -20 -109 -156 -216 -302 l-194 -267 3 -75 3 -75 247 -3 247 -2 3 -98 3 -97 103 -3 102 -3 0 100 0 100 78 3 77 3 0 90 0 90 -77 3 -78 3 0 89 0 90 -100 0 -100 0 0 -90 0 -90 -120 0 -121 0 33 48 c18 26 105 148 193 272 88 124 164 231 169 238 5 9 -19 12 -113 12 l-119 0 -23 -36z"/>
+    <path d="M10097 4513 c-4 -3 -7 -44 -7 -90 l0 -83 -55 0 -55 0 0 -65 0 -64 58 -3 57 -3 5 -230 c5 -246 9 -263 62 -311 49 -46 89 -59 178 -59 87 0 170 24 170 49 0 6 -10 35 -22 64 -19 46 -25 52 -43 46 -11 -4 -43 -9 -70 -11 -40 -4 -56 0 -75 15 -25 20 -25 21 -28 231 l-3 211 95 0 96 0 0 65 0 65 -95 0 -95 0 0 90 0 90 -83 0 c-46 0 -87 -3 -90 -7z"/>
+    <path d="M10847 4350 c-103 -26 -204 -106 -245 -193 -95 -202 -18 -428 178 -521 60 -29 73 -31 170 -31 137 1 201 24 281 104 78 78 103 144 103 271 0 166 -60 267 -199 336 -65 32 -84 37 -162 40 -48 2 -105 -1 -126 -6z m220 -172 c109 -72 125 -270 30 -368 -110 -113 -304 -59 -347 96 -15 53 -8 149 13 190 20 39 65 84 102 101 50 22 154 13 202 -19z"/>
+    <path d="M12011 4349 c-44 -9 -171 -63 -171 -74 0 -4 57 -112 66 -124 2 -2 31 11 65 28 53 27 73 31 138 31 117 0 176 -41 183 -129 l3 -33 -140 -2 c-151 -3 -203 -13 -256 -49 -94 -63 -115 -196 -45 -297 73 -107 289 -133 405 -49 l40 28 3 -32 3 -32 80 0 80 0 0 265 c0 258 -1 266 -24 318 -48 105 -159 163 -310 161 -42 -1 -96 -5 -120 -10z m283 -472 c-1 -85 -59 -139 -158 -145 -97 -6 -146 26 -146 98 0 79 43 100 195 97 l110 -2 -1 -48z"/>
+    <path d="M13563 4350 c-52 -11 -131 -45 -155 -67 -17 -15 -16 -19 14 -74 17 -33 34 -59 37 -59 3 0 33 14 65 30 50 26 70 30 135 30 118 0 178 -41 184 -125 l2 -40 -160 -6 c-89 -3 -173 -11 -189 -17 -87 -37 -129 -101 -130 -199 0 -83 36 -143 114 -187 51 -29 62 -31 155 -31 108 0 142 11 198 63 l27 26 0 -42 0 -42 80 0 80 0 0 253 c0 293 -7 332 -71 402 -59 64 -123 88 -244 91 -55 2 -119 -1 -142 -6z m281 -476 c-2 -62 -24 -98 -75 -125 -72 -36 -192 -20 -219 30 -19 37 -12 90 16 116 33 30 47 33 174 31 l105 -1 -1 -51z"/>
+    <path d="M14437 4349 c-99 -23 -197 -104 -240 -197 -18 -39 -22 -65 -22 -147 1 -121 19 -169 95 -249 66 -70 130 -98 236 -104 94 -5 133 5 204 53 l50 34 0 -55 c0 -69 -17 -111 -63 -151 -44 -39 -82 -47 -190 -41 -66 3 -96 11 -155 38 -40 18 -74 31 -75 29 -15 -19 -67 -111 -67 -119 0 -14 118 -68 190 -86 48 -12 94 -15 180 -12 100 4 123 8 178 33 75 33 122 84 154 164 21 54 23 71 26 434 l3 377 -85 0 -86 0 0 -45 0 -45 -45 35 c-76 58 -185 78 -288 54z m208 -158 c52 -23 102 -81 111 -126 10 -58 -1 -143 -23 -172 -10 -15 -36 -41 -57 -57 -35 -29 -43 -31 -120 -31 -74 0 -87 3 -123 28 -58 40 -87 97 -87 172 1 66 16 105 61 147 61 58 161 74 238 39z"/>
+    <path d="M15340 4345 c-108 -31 -193 -105 -230 -203 -68 -180 3 -377 168 -461 115 -59 295 -40 366 38 32 35 38 26 31 -41 -10 -86 -39 -137 -95 -166 -40 -21 -56 -23 -141 -20 -87 3 -104 7 -168 39 l-72 36 -34 -57 c-19 -32 -35 -63 -35 -69 0 -16 109 -66 185 -86 86 -22 237 -20 317 5 95 29 140 66 180 147 l33 68 3 387 3 388 -81 0 -80 0 0 -45 0 -45 -42 31 c-24 17 -59 37 -78 46 -52 22 -165 26 -230 8z m218 -150 c49 -21 81 -52 103 -100 37 -80 16 -188 -47 -247 -39 -36 -74 -48 -146 -48 -74 0 -141 33 -178 87 -35 51 -40 153 -11 211 21 42 67 83 111 101 38 15 126 13 168 -4z"/>
+    <path d="M16655 4346 c-191 -47 -308 -227 -276 -424 34 -209 196 -333 417 -319 148 9 261 83 321 212 25 54 28 71 28 165 0 99 -2 110 -33 172 -80 162 -266 241 -457 194z m224 -169 c77 -51 111 -170 80 -281 -14 -49 -80 -122 -126 -137 -21 -7 -59 -9 -91 -6 -105 11 -179 91 -189 205 -7 76 10 135 55 184 50 56 83 69 163 65 53 -2 75 -8 108 -30z"/>
+    <path d="M9174 4336 c-3 -8 -4 -124 -2 -258 4 -219 6 -248 25 -296 31 -78 66 -117 130 -149 51 -25 69 -28 148 -27 101 0 140 13 198 64 l37 32 0 -46 0 -46 80 0 80 0 0 370 0 370 -84 0 -85 0 -3 -232 c-3 -227 -4 -234 -28 -277 -32 -56 -83 -84 -155 -84 -64 0 -111 24 -140 73 -18 32 -20 57 -25 275 l-5 240 -83 3 c-66 2 -83 0 -88 -12z"/>
+    <path d="M12550 4341 c0 -6 40 -106 88 -223 49 -117 115 -279 147 -360 l59 -148 92 0 c64 0 93 4 97 13 2 6 70 171 151 365 80 194 146 355 146 357 0 3 -38 5 -85 5 -72 0 -87 -3 -92 -17 -44 -123 -212 -512 -217 -504 -4 6 -54 124 -111 263 l-104 253 -85 3 c-52 2 -86 -1 -86 -7z"/>
+    <path d="M16055 4338 c-3 -7 -4 -173 -3 -368 l3 -355 85 0 85 0 0 365 0 365 -83 3 c-60 2 -84 -1 -87 -10z"/>
+  </g>
+</svg>
+    <h1 class="solo-lettori">Wash & Go Autolavaggio H24</h1>
+
+    <span class="stato">Aperto 24 ore su 24, tutti i giorni</span>
+
+    <ul class="link">
+      <li>
+        <!-- Link suggerito: https://www.google.com/maps/dir/?api=1&destination=Wash+%26+Go+Autolavaggio+Filadelfia -->
+        <a class="btn btn-primario" href="INSERISCI_LINK_MAPS" target="_blank" rel="noopener">
+          <span class="icona"><svg aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M429.6 92.1c4.9-11.9 2.1-25.6-7-34.7s-22.8-11.9-34.7-7l-352 144c-14.2 5.8-22.2 20.8-19.3 35.8s16.1 25.8 31.4 25.8l176 0 0 176c0 15.3 10.8 28.4 25.8 31.4s30-5.1 35.8-19.3l144-352z"/></svg></span>
+          <span class="testo">
+            Raggiungici con Maps
+            <span class="dettaglio">Zona Industriale, Filadelfia (VV)</span>
+          </span>
+          <svg class="freccia" aria-hidden="true" focusable="false" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+        </a>
+      </li>
+      <li>
+        <!-- Link dal profilo Google Business: "Chiedi recensioni" → copia link (formato https://g.page/r/.../review) -->
+        <a class="btn" href="INSERISCI_LINK_RECENSIONE_GOOGLE" target="_blank" rel="noopener">
+          <span class="icona ico-google"><svg aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg></span>
+          <span class="testo">
+            Lascia una recensione su Google
+            <span class="dettaglio">Ci vuole meno di un minuto</span>
+          </span>
+          <svg class="freccia" aria-hidden="true" focusable="false" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a class="btn" href="INSERISCI_LINK_INSTAGRAM" target="_blank" rel="noopener">
+          <span class="icona ico-instagram"><svg aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span>
+          <span class="testo">
+            Seguici su Instagram
+            <span class="dettaglio">Offerte e novità</span>
+          </span>
+          <svg class="freccia" aria-hidden="true" focusable="false" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a class="btn" href="INSERISCI_LINK_FACEBOOK" target="_blank" rel="noopener">
+          <span class="icona ico-facebook"><svg aria-hidden="true" focusable="false" viewBox="0 0 320 512"><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg></span>
+          <span class="testo">
+            Seguici su Facebook
+            <span class="dettaglio">Pagina ufficiale</span>
+          </span>
+          <svg class="freccia" aria-hidden="true" focusable="false" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+        </a>
+      </li>
+    </ul>
+
+    <section class="blocco-aiuto" aria-label="Assistenza">
+      <p>Sei davanti al totem e qualcosa non va?</p>
+      <!--
+        NUMERO: formato internazionale senza +, spazi o zeri iniziali (es. 393331234567).
+        Il messaggio dopo ?text= è già precompilato e codificato; puoi modificarlo.
+      -->
+      <a class="btn btn-whatsapp"
+         href="https://wa.me/INSERISCI_NUMERO_WHATSAPP?text=Ciao%2C%20sono%20all%27autolavaggio%20Wash%20%26%20Go%20e%20ho%20bisogno%20di%20assistenza%3A%20"
+         target="_blank" rel="noopener">
+        <span class="icona"><svg aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span>
+        <span class="testo">
+          Scrivici su WhatsApp
+          <span class="dettaglio">Assistenza rapida</span>
+        </span>
+        <svg class="freccia" aria-hidden="true" focusable="false" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+      </a>
+    </section>
+
+    <footer>
+      <address>Zona Industriale PIP, C.da Molinello<br>Filadelfia (VV)</address>
+      <p style="margin-top:0.5rem">© <span id="anno"></span> Wash & Go Autolavaggio</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("anno").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
